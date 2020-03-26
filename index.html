@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Nations Randomizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="stylesheet/css" href="styles.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">    
+</head>
+<body data-ng-app="nationsApp">
+<div data-ng-controller="randomizer">
+    <table>
+        <tbody>
+            <!-- Player amount-->
+            <tr>
+                <td colspan="2"><input type="range" data-ng-model="playerAmount" value="3" min="1" max="5" data-show-value="true" /></td>
+            </tr>
+
+            <!-- Expansions -->
+            <tr>
+                <td>
+                    <label for="core">Core</label>
+                    <input type="checkbox" id="core" name="core" checked="checked" data-ng-model="coreCheck"/>
+                </td>
+                <td>
+                    <label for="dynaexp">Dynasties</label>
+                    <input type="checkbox" id="dynaexp" name="dynasties" data-ng-model="dynaCheck"/>
+                </td>
+            </tr>
+
+            <!-- Generator button -->
+            <tr>
+                <td colspan="2">
+                    <button data-ng-click="randomizer()">Generate</button>
+                </td>
+            </tr>
+
+            <!-- Chosen Nations -->
+            <tr data-ng-repeat="nation in chosenNations">
+                <td class="nation" colspan="2">{{nation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
